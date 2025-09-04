@@ -1,12 +1,12 @@
-# 가이드: 다른 프로젝트에서 AI 리뷰 액션 테스트하기
+# 가이드: 다른 프로젝트에서 만든 AI 리뷰 액션 테스트하기
 
-이 문서는 `01_create_test_project.md` 가이드에 따라 생성된 Pull Request(PR)에 대해, 우리가 만든 AI 코드 리뷰 GitHub Action을 적용하고 테스트하는 방법을 안내합니다.
+이 문서는 `01_create_test_project.md` 가이드에 따라 생성된 Pull Request(PR)에 대해, 다른 프로젝트에서 만든 AI 코드 리뷰 GitHub Action을 적용하고 테스트하는 방법을 안내합니다.
 
 ## 체크리스트
 
-- [ ] 테스트할 프로젝트에 GitHub Actions 워크플로우 디렉토리 생성
+- [ ] GitHub Actions 워크플로우 디렉토리 생성
 - [ ] `review.yml` 워크플로우 파일 추가
-- [ ] 테스트 프로젝트의 GitHub Secrets에 `GEMINI_API_KEY` 추가
+- [ ] 프로젝트 GitHub Secrets에 `GEMINI_API_KEY` 추가
 - [ ] PR을 생성하여 액션이 올바르게 실행되는지 확인
 - [ ] 액션이 PR에 리뷰 코멘트를 남기는지 확인
 
@@ -14,7 +14,7 @@
 
 ## 1단계: 워크플로우 파일 생성
 
-테스트용 프로젝트의 루트에 `.github/workflows` 디렉토리를 생성하고, 그 안에 `review.yml` 파일을 추가합니다.
+프로젝트 루트에 `.github/workflows` 디렉토리를 생성하고, 그 안에 `review.yml` 파일을 추가합니다.
 
 **파일 경로:** `.github/workflows/review.yml`
 
