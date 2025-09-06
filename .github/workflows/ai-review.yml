@@ -8,8 +8,6 @@ permissions:
   pull-requests: write
   contents: read
   issues: write
-  actions: read
-  checks: write
 
 jobs:
   ai-review:
