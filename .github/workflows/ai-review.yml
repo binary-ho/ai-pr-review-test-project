@@ -1,34 +1,27 @@
 name: 'Run AI Code Review'
+
 on:
   pull_request:
     branches: [ main ]
 
-jobs:
-  review:
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      contents: read
-      issues: write
+permissions:
+  pull-requests: write
+  contents: read
+  issues: write
 
+jobs:
+  ai-review:
+    runs-on: ubuntu-latest
+    
     steps:
-      # 1. 코드를 체크아웃합니다.
-      # fetch-depth: 0 옵션은 모든 히스토리를 가져와 정확한 diff를 생성하기 위해 필수적입니다.
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2. AI 코드 리뷰 액션을 실행합니다.
-      # uses: {owner}/{repo}@{branch} 형식으로 액션을 지정합니다.
       - name: AI Pull Request Reviewer
         uses: binary-ho/vibe-from-phone@v1
         with:
-          # GitHub API와 상호작용하기 위한 토큰입니다.
           github_token: ${{ secrets.GITHUB_TOKEN }}
-
-          # Gemini API 키입니다. 아래 3단계에서 설정할 Secret을 통해 전달해야 합니다.
           gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
-
-          # 'review' 모드(기본값)로 설정하여 코드 리뷰를 수행하도록 합니다.
           mode: 'review'
