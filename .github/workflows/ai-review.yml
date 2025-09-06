@@ -1,0 +1,27 @@
+name: 'Run AI Code Review'
+
+on:
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  pull-requests: write
+  contents: read
+  issues: write
+
+jobs:
+  ai-review:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: AI Pull Request Reviewer
+        uses: binary-ho/vibe-from-phone@v1
+        with:
+          github-token: ${{ secrets.REMOTE_REPOSITORY_PERSONAL_ACCESS_TOKEN }}
+          gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
+          mode: 'review'
