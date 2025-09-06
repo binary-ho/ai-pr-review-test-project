@@ -24,6 +24,6 @@ jobs:
       - name: AI Pull Request Reviewer
         uses: binary-ho/vibe-from-phone@v1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.REMOTE_REPOSITORY_PERSONAL_ACCESS_TOKEN }}
           gemini-api-key: ${{ secrets.GEMINI_API_KEY }}
           mode: 'review'
