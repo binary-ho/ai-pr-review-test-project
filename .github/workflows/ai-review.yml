@@ -7,8 +7,11 @@ jobs:
   review:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       pull-requests: write
+      contents: read
+      users: read
+      issues: write
+
     steps:
       # 1. 코드를 체크아웃합니다.
       # fetch-depth: 0 옵션은 모든 히스토리를 가져와 정확한 diff를 생성하기 위해 필수적입니다.
